@@ -1,0 +1,9 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - creditcard.csv
+    - train.py
+    outs:
+    - metrics.json
+    - model.joblib

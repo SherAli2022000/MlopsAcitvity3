@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - path: creditcard.csv
+      md5: e90efcb83d69faf99fcab8b0255024de
+      size: 150828752
+    - path: train.py
+      md5: 92d46b54e40b592e1e4635410f6b1df8
+      size: 1039
+    outs:
+    - path: metrics.json
+      md5: 57833af6670e7f5efcdfbd7eadd311e9
+      size: 35
+    - path: model.joblib
+      md5: 4955090a8026c31ab77d03e6057b9973
+      size: 87769
