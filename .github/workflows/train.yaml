@@ -1,0 +1,17 @@
+name: DVC Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  dvc:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install DVC
+      run: pip install dvc[gdrive]
+    - name: Authenticate with Google Drive
+      run: dvc remote modify gdrive --default-auth basic
+    - name: Run DVC pipeline
+      run: dvc repro train.dvc
