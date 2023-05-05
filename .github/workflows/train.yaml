@@ -12,6 +12,8 @@ jobs:
     - name: Install DVC
       run: pip install dvc[gdrive]
     - name: Authenticate with Google Drive
-      run: dvc remote modify gdrive --default-auth basic
+      run: |
+          dvc remote modify mlopsActivity gdrive_client_id 11764102293-78fu90rck6eki40ffbi7qf7vhfv47usv.apps.googleusercontent.com
+          dvc remote modify mlopsActivity gdrive_client_secret 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
     - name: Run DVC pipeline
       run: dvc repro train.dvc
